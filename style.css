@@ -1,0 +1,24 @@
+.heading{
+    font-size: 35px;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+    color: cornflowerblue;
+   }
+   
+   body{
+       background-size: cover;
+   }
+   
+   .div_song_name{
+       float: center;
+       margin-top: 15px;
+       font-size: 30px;
+       font-weight: bold;
+   }
+
+   #song_name{
+       background-color: rgb(89, 0, 255);
+       color: cornflowerblue;
+   }
+   
