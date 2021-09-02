@@ -21,4 +21,8 @@
        background-color: rgb(89, 0, 255);
        color: cornflowerblue;
    }
-   
+
+   canvas{
+    border: 5px solid black;
+    border-radius: 20px;
+}
