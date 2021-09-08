@@ -6,6 +6,9 @@ leftWristY = 0;
 rightWristX = 0;
 rightWristY = 0;
 
+scoreleftwrist = 0;
+status_1 = "";
+status_2 = "";
 function setup(){
     canvas = createCanvas(600,500);
     canvas.center();
@@ -32,12 +35,31 @@ function gotPoses(results){
         rightWristX = results[0].pose.rightWrist.x;
         rightWristY = results[0].pose.rightWrist.y;
         console.log("rightWristX = " + rightWristX + "rightWristY = " + rightWristY);
+
+        scoreleftWrist = results[0].pose.keypoints[9].score;
  
     }
  }
 
 function draw(){
     image(video,0,0,600,500);
+    fill('red');
+    stroke('red');
+
+    status_1 = song_1.isPlaying();
+    status_2 = song_2.isPlaying();
+
+    if (scoreleftWrist > 0.2) {
+        circle(leftWristX, leftWristY, 20);
+
+        song_2.stop();
+
+        if(status_1 == false){
+            song_1.play();
+            document.getElementById("song_name").innerHTML = "Playing Lovely";
+        }
+    }
+    
 }
 
 function preload(){
