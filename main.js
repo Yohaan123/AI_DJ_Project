@@ -7,6 +7,8 @@ rightWristX = 0;
 rightWristY = 0;
 
 scoreleftwrist = 0;
+scoreRightWrist = 0;
+
 status_1 = "";
 status_2 = "";
 function setup(){
@@ -37,6 +39,7 @@ function gotPoses(results){
         console.log("rightWristX = " + rightWristX + "rightWristY = " + rightWristY);
 
         scoreleftWrist = results[0].pose.keypoints[9].score;
+        scoreRightWrist = results[0].pose.keypoints[10].score;
  
     }
  }
@@ -57,6 +60,17 @@ function draw(){
         if(status_1 == false){
             song_1.play();
             document.getElementById("song_name").innerHTML = "Playing Lovely";
+        }
+    }
+
+    if (scoreRightWrist > 0.2) {
+        circle(rightWristX, rightWristY, 20);
+
+        song_1.stop();
+
+        if(status_2 == false){
+            song_2.play();
+            document.getElementById("song_name").innerHTML = "Playing HP Theme song.mp3";
         }
     }
     
